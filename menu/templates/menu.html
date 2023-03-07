@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% if nodes %}
+    <ul>
+        {% for node in nodes %}
+            <li class="{% if node.is_active %}active{% endif %}">
+                <a href="{% if node.url %}{{ node.url }}{% else %}{% url node.url_name %}{% endif %}">
+                    {{ node.title }}
+                </a>
+                {% if node.children %}
+                    {% include "menu.html" with nodes=node.children %}
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
+

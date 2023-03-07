@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <nav>
+        {% draw_menu 'main_menu' %}
+    </nav>
+    {% block content %}{% endblock %}
+</body>
+</html>
